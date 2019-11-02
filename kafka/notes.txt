@@ -1,0 +1,21 @@
+1. Starting a Zookeeper  :
+   Go To C:\Soft\kafka-zoo\zookeeper-3.4.14
+   Run Following command from command line
+   .\bin\zkServer.cmd and it will be listening on port 2181
+
+2. Starting the Kafka Server ::
+    Configure the server.properties file and set the log file location and zookeeper port and server etc.
+    Command ::
+    .\bin\windows\kafka-server-start.bat .\config\server.properties
+
+3. Create a Topic on Kafka server:: [C:\Soft\kafka-zoo\kafka_2.12-2.3.0]
+.\bin\windows\kafka-topics.bat --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic TestTopic
+
+List the topic
+   .\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
+
+
+4. Create the Producer (Command Line Producer)::
+    .\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic TestTopic
+5. Create the Consumer (Command Line Consumer)
+    .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic TestTopic --from-beginning    
