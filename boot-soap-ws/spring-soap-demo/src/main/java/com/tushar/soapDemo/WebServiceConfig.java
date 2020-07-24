@@ -24,6 +24,7 @@ public class WebServiceConfig extends WsConfigurerAdapter{
 		return new ServletRegistrationBean(servlet, "/ws/*");
 	}
 
+	// default wsdl configuration.. the service name will be derived from Message name
 	@Bean(name = "countries")
 	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
